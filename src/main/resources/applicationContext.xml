@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="
+       http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+       http://www.springframework.org/schema/tx 
+       http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+       http://www.springframework.org/schema/mvc 
+       http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.2.xsd
+       http://www.springframework.org/schema/aop 
+       http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+       
+       <bean id="user" class="com.tizfer.entity.User">
+       		<property name="name" value="tizfer"/>
+       </bean>
+       <!-- 纸张 -->
+       <bean id="a4" class="com.tizfer.entity.impl.A4Paper" />
+       <bean id="b4" class="com.tizfer.entity.impl.B5Paper" />
+       <!-- 墨水 -->
+       <bean id="blackink" class="com.tizfer.entity.impl.BlackBox" />
+       <bean id="colorink" class="com.tizfer.entity.impl.ColorBox" />
+       
+       <!-- 打印机 -->
+       <bean id="printer" class="com.tizfer.entity.Printer" >
+       		<property name="papar" ref="a4"></property>
+       		<property name="inkBox" ref="blackink"></property>
+       </bean>
+       
+        <!-- usb1 -->
+       <bean id="m1" class="com.tizfer.computer.impl.MouseUsb1" />
+       <bean id="k1" class="com.tizfer.computer.impl.KeyBoundUsb1" />
+       <bean id="o1" class="com.tizfer.computer.impl.OtherUsb1" />
+       <!--usb2 -->
+       <bean id="m2" class="com.tizfer.computer.impl.MouseUsb2" />
+       <bean id="k2" class="com.tizfer.computer.impl.KeyBoundUsb2" />
+       <bean id="o2" class="com.tizfer.computer.impl.OtherUsb2" />
+       
+       <!-- 电脑 -->
+       <bean id="mycomputer" class="com.tizfer.computer.MyComputer" >
+       		<property name="usb1" ref="m1"></property>
+       		<property name="usb2" ref="k2"></property>
+       </bean>
+</beans>
