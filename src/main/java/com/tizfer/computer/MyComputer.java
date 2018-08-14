@@ -12,6 +12,6 @@ public class MyComputer {
 	}
 
 	public void myComputer() {
-		System.out.println(usb1.firUsbType()+"---"+usb2.secUsbType());
+		System.out.println(usb1.firUsbType()+"-++++--"+usb2.secUsbType());
 	}
 }
